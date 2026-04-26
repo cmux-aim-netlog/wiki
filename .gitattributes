@@ -1,0 +1,3 @@
+# piki: parallel ingest workers append to log.md from the same base.
+# Union merge keeps both lines instead of forcing a manual conflict.
+log.md merge=union
