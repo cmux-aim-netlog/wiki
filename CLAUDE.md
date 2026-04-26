@@ -1,0 +1,10 @@
+# piki Schema
+
+Organization: `cmux-aim-netlog`
+Wiki repository: `wiki`
+
+## Rules
+- 이 위키는 조직 단위 단일 위키로 운영한다.
+- source repo는 수정하지 않고, 컨텍스트 결과만 이 위키에 반영한다.
+- 사실 진술은 출처를 남긴다.
+- 확신이 없으면 `[NEEDS HUMAN INPUT]`로 표기한다.
