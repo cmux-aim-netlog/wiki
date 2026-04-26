@@ -1,0 +1,57 @@
+name: piki-ingest
+
+on:
+  repository_dispatch:
+    types:
+      - piki_source_repo_merged
+  workflow_dispatch:
+    inputs:
+      org:
+        description: "Source repo's organization"
+        required: true
+      source_repo:
+        description: "Source repository name (under the org)"
+        required: true
+      head_sha:
+        description: "Head commit SHA to ingest"
+        required: true
+      base_sha:
+        description: "Base commit SHA (optional; omit for snapshot mode)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+# NOTE: deliberately no `concurrency:` group.
+# GitHub Actions only keeps 1 running + 1 pending per concurrency group, and any
+# 3rd dispatch evicts the previous pending one (silently cancelled). Bootstrap
+# fires N dispatches at once; with the queue, the middle (N-2) get dropped.
+# Instead we let dispatches run in parallel and rely on `piki ingest-pr`'s
+# pull-rebase-retry-on-push loop to serialize wiki commits.
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.client_payload.pr_merged == true || github.event.client_payload.pr_merged == 'true') &&
+      (github.event.client_payload.base_ref == 'main' || github.event.client_payload.base_ref == 'master')
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install piki
+        run: pip install --quiet "git+https://github.com/cmux-aim-netlog/piki.git@main"
+      - name: Run ingest
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # PIKI_BOT_TOKEN must allow read on source repo + write on this wiki repo.
+          GITHUB_TOKEN: ${{ secrets.PIKI_BOT_TOKEN }}
+          PIKI_WIKI_REPO: ${{ github.event.repository.name }}
+          # repository_dispatch path: env vars below stay empty and ingest_pr will
+          # parse GITHUB_EVENT_PATH. workflow_dispatch path: explicit inputs below.
+          PIKI_ORG: ${{ github.event.inputs.org }}
+          PIKI_SOURCE_REPO: ${{ github.event.inputs.source_repo }}
+          PIKI_HEAD_SHA: ${{ github.event.inputs.head_sha }}
+          PIKI_BASE_SHA: ${{ github.event.inputs.base_sha }}
+        run: piki ingest-pr
