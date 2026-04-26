@@ -29,3 +29,11 @@ last_synced_commit: 4f502763b133e8785567a61bb7b050fb7ddadb7d
 ## 변경 이력
 
 - 2026-04-26: 최초 생성
+
+<!-- piki:backlinks-start -->
+## Backlinks
+_Pages that link to this one (auto-generated)._
+
+- [CheckIt 서비스 아키텍처](../../concepts/checkit-service-architecture.md)
+- [Piki 위키 시스템](../../concepts/piki-wiki-system.md)
+<!-- piki:backlinks-end -->

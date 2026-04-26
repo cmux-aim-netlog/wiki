@@ -23,3 +23,11 @@ last_synced_commit: 2e7f8ab90e8e608c41c2974ec03d98058c54157e
 
 ## 변경 이력
 - 2026-04-26: 최초 생성
+
+<!-- piki:backlinks-start -->
+## Backlinks
+_Pages that link to this one (auto-generated)._
+
+- [scripts/piki_init.py](../scripts/piki_init.py.md)
+- [.github 리포지터리 개요](../../overview.md)
+<!-- piki:backlinks-end -->

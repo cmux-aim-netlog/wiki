@@ -40,3 +40,18 @@ piki 시스템은 네 가지 주요 계층으로 구성됩니다:
 
 ## 변경 이력
 - 2026-04-26: 최초 생성
+
+<!-- piki:backlinks-start -->
+## Backlinks
+_Pages that link to this one (auto-generated)._
+
+- [Piki 위키 시스템](../../concepts/piki-wiki-system.md)
+- [piki API (CLI)](api.md)
+- [piki Conventions](conventions.md)
+- [`piki/commands/ingest_cmd.py`](files/piki/commands/ingest_cmd.py.md)
+- [`piki/config.py`](files/piki/config.py.md)
+- [`piki/main.py`](files/piki/main.py.md)
+- [`piki/templates/piki.md`](files/piki/templates/piki.md.md)
+- [`piki/wiki/db.py`](files/piki/wiki/db.py.md)
+- [piki Gotchas](gotchas.md)
+<!-- piki:backlinks-end -->

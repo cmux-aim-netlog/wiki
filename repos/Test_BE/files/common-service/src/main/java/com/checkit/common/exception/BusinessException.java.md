@@ -26,3 +26,10 @@ last_synced_commit: 4f502763b133e8785567a61bb7b050fb7ddadb7d
 ## 변경 이력
 
 - 2026-04-26: 최초 생성
+
+<!-- piki:backlinks-start -->
+## Backlinks
+_Pages that link to this one (auto-generated)._
+
+- [Test_BE 코딩 컨벤션](../../../../../../../../../conventions.md)
+<!-- piki:backlinks-end -->

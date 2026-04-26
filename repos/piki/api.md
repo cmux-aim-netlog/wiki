@@ -39,3 +39,12 @@ piki의 주요 인터페이스는 `piki` 명령어를 통해 제공되는 CLI입
 
 ## 변경 이력
 - 2026-04-26: 최초 생성
+
+<!-- piki:backlinks-start -->
+## Backlinks
+_Pages that link to this one (auto-generated)._
+
+- [`piki/commands/ingest_cmd.py`](files/piki/commands/ingest_cmd.py.md)
+- [`piki/main.py`](files/piki/main.py.md)
+- [piki 리포지토리 개요](overview.md)
+<!-- piki:backlinks-end -->
